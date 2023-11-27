@@ -1,0 +1,32 @@
+services:
+  backend:
+    image: "grpc-study-laravel-main-backend"
+    build:
+      context: ./main-backend
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./main-backend:/var/www/html
+
+  # nginx:
+  #   image: "grpc-study-laravel-main-nginx"
+  #   build:
+  #     context: ./nginx
+  #     dockerfile: Dockerfile
+  #   restart: always
+  #   depends_on:
+  #     - frontend
+  #     - backend
+  #   volumes:
+  #     - ./mwmmetier-backend:/var/www/html:ro
+  #     - ./nginx/templates-available:/etc/nginx/templates-available
+  #     - ./nginx/ssl:/etc/ssl/private
+  #     - ./nginx/logs:/var/log/nginx
+  #     - ./mwmmetier-backend/tests/coverage:/home/html
+  #   environment:
+  #     - "ENVIRONMENT=${NGINX_ENVIRONMENT}"
+  #     - "NGINX_DOMAIN=${NGINX_DOMAIN}"
+  #     - "NGINX_REDIRECT_CODE=${NGINX_REDIRECT_CODE}"
+  #   ports:
+  #     - 80:80
+  #     - 443:443
