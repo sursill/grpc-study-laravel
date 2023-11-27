@@ -1,0 +1,3 @@
+[submodule "main-backend"]
+	path = main-backend
+	url = git@github.com:sursill/grpc-study-laravel-backend.git
